@@ -629,6 +629,39 @@ a[stagger-link] [stagger-link-text]{
   display: inline-block;
   will-change: transform;
 }
+
+@media (max-width: 767px) {
+
+  .popup-wrapper_content-4 .container {
+    height: 80vh;
+    perspective: 1600px;
+  }
+
+  .popup-wrapper_content-4 .gallery {
+    width: 70vw;
+    height: 70vw;
+    max-width: 420px;
+    max-height: 420px;
+  }
+
+  .popup-wrapper_content-4 .card {
+    width: 54px;
+    height: 72px;
+  }
+
+  .popup-wrapper_content-4 .title-container {
+    bottom: 22%;
+    transform: translateX(-50%);
+  }
+
+  .popup-wrapper_content-4 .title-container p {
+    font-size: 24px;
+  }
+
+  .popup-wrapper_content-4 .gallery-container {
+    overflow: visible;
+  }
+}
 `;
 
   document.head.appendChild(styleEl);
