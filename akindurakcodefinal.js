@@ -593,6 +593,115 @@ a[stagger-link] [stagger-link-text]{
   pointer-events: none;
   transition: opacity 0.3s ease;
 }
+.popup-wrapper_content-4 {
+  background-color: #ffffff;
+}
+
+/* Reset nur IM Popup */
+.popup-wrapper_content-4 * {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+.popup-wrapper_content-4 .container {
+  position: relative;
+  width: 70vw;
+  height: 70svh;
+  overflow: visible;
+}
+
+.popup-wrapper_content-4 .gallery-container {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  transform-style: preserve-3d;
+  perspective: 2000px;
+}
+
+.popup-wrapper_content-4 .gallery {
+  box-sizing: content-box; /* verhindert Layout-Verengung */
+  position: relative;
+  width: 600px;
+  height: 600px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  transform-origin: center center;
+}
+
+.popup-wrapper_content-4 .card {
+  position: absolute;
+  width: 45px;
+  height: 60px;
+  border-radius: 4px;
+  overflow: hidden;
+  transform-style: preserve-3d;
+}
+
+.popup-wrapper_content-4 .card img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.popup-wrapper_content-4 .title-container {
+  position: fixed;
+  bottom: 22%;
+  left: 50%;
+  transform: translate(-50%, 0);
+  width: 100%;
+  text-align: center;
+}
+
+.popup-wrapper_content-4 .title-container p {
+  font-family: "Suisse Intl";
+  font-size: 36px;
+  font-weight: 600;
+  letter-spacing: -0.04em;
+}
+
+.intro-text {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  font-family: "Suisse Intl";
+  font-size: 34px;
+  font-weight: 600;
+  letter-spacing: -0.03em;
+  text-align: center;
+  color: #1f1f1f;
+  pointer-events: none;
+  z-index: 5;
+  opacity: 1;
+}
+
+.popup-wrapper_content-4 .word {
+  display: inline-block;
+  will-change: transform;
+}
+
+html.popup-open,
+body.popup-open {
+  overflow: hidden;
+}
+
+.popup-wrapper_content-4 {
+  height: 90vh;
+  overflow-y: auto;
+  overflow-x: hidden;
+  overscroll-behavior: contain;
+}
+.popup-wrapper-4,
+.popup-inner,
+.popup-content,
+.popup-background {
+  overflow: visible;
+}
 `;
 
   document.head.appendChild(styleEl);
