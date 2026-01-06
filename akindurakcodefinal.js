@@ -513,24 +513,58 @@ a[stagger-link] [stagger-link-text]{
 	text-shadow: 0px 1em 0px;
 }
 
-.popup-wrapper_content-4 {
-  background-color: #ffffff;
-}
-
-/* Reset nur IM Popup */
+/* ===========================
+   POPUP – DESKTOP VERSION
+   =========================== */
 .popup-wrapper_content-4 * {
-  margin: 0;
-  padding: 0;
   box-sizing: border-box;
 }
 
-.popup-wrapper_content-4 .container {
+/* Hintergrund nur im Popup */
+.popup-wrapper_content-4 {
+  background-color: #ffffff;
   position: relative;
-  width: 70vw;
-  height: 70svh;
-  overflow: visible;
+  overflow: hidden;
 }
 
+/* Typo */
+.popup-wrapper_content-4 a,
+.popup-wrapper_content-4 p {
+  text-decoration: none;
+  color: #1f1f1f;
+  font-family: "Suisse Intl";
+  font-size: 15px;
+  font-weight: 600;
+  line-height: 1;
+  letter-spacing: -0.02rem;
+}
+
+/* Bilder */
+.popup-wrapper_content-4 img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  backface-visibility: hidden;
+}
+
+/* NAV + FOOTER sind im Original — im Popup aber NICHT sichtbar. 
+   Wir neutralisieren sie, falls mitkopiert. */
+.popup-wrapper_content-4 nav,
+.popup-wrapper_content-4 footer {
+  display: none;
+}
+
+/* ======= WICHTIG: Bühne = Popup, nicht Vollbild ======= */
+
+.popup-wrapper_content-4 .container {
+  position: relative;
+  width: 100%;
+  height: 85vh;          /* statt 100svh */
+  overflow: visible;     /* Slider darf auslaufen */
+  perspective: 2000px;   /* PERSPEKTIVE HIER */
+}
+
+/* 3D-Wrapper */
 .popup-wrapper_content-4 .gallery-container {
   position: relative;
   width: 100%;
@@ -539,88 +573,61 @@ a[stagger-link] [stagger-link-text]{
   justify-content: center;
   align-items: center;
   transform-style: preserve-3d;
-  perspective: 2000px;
+  perspective: none;     /* NICHT doppelt */
+  will-change: transform;
+  overflow: visible;
 }
 
+/* Kreis */
 .popup-wrapper_content-4 .gallery {
-  box-sizing: content-box; /* verhindert Layout-Verengung */
   position: relative;
   width: 600px;
   height: 600px;
   display: flex;
   justify-content: center;
   align-items: center;
-  transform-origin: center center;
-}
-
-.popup-wrapper_content-4 .card {
-  position: absolute;
-  width: 45px;
-  height: 60px;
-  border-radius: 4px;
-  overflow: hidden;
-  transform-style: preserve-3d;
-}
-
-.popup-wrapper_content-4 .card img {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-}
-
-.popup-wrapper_content-4 .title-container {
-  position: fixed;
-  bottom: 22%;
-  left: 50%;
-  transform: translate(-50%, 0);
-  width: 100%;
-  text-align: center;
-}
-
-.popup-wrapper_content-4 .title-container p {
-  font-family: "Suisse Intl";
-  font-size: 36px;
-  font-weight: 600;
-  letter-spacing: -0.04em;
-}
-
-.intro-text {
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  font-family: "Suisse Intl";
-  font-size: 34px;
-  font-weight: 600;
-  letter-spacing: -0.03em;
-  text-align: center;
-  color: #1f1f1f;
-  pointer-events: none;
-  z-index: 5;
-  opacity: 1;
-}
-
-.popup-wrapper_content-4 .word {
-  display: inline-block;
+  transform-origin: center;
   will-change: transform;
 }
 
-html.popup-open,
-body.popup-open {
+/* Karten */
+.popup-wrapper_content-4 .card {
+  position: absolute;
+  width: 75px;          /* angepasst für Popup */
+  height: 100px;
+  border-radius: 4px;
+  transform-origin: center;
+  will-change: transform;
+  transform-style: preserve-3d;
+  backface-visibility: visible;
   overflow: hidden;
 }
 
-.popup-wrapper_content-4 {
-  height: 90vh;
-  overflow-y: auto;
-  overflow-x: hidden;
-  overscroll-behavior: contain;
+/* Titel (im Popup NICHT fixed) */
+.popup-wrapper_content-4 .title-container {
+  position: absolute;
+  bottom: 18%;
+  left: 50%;
+  transform: translate(-50%, 0);
+  width: 100%;
+  height: 42px;
+  clip-path: polygon(0 0, 100% 0, 100% 100%, 0% 100%);
+  pointer-events: none;
 }
-.popup-wrapper-4,
-.popup-inner,
-.popup-content,
-.popup-background {
-  overflow: visible;
+
+.popup-wrapper_content-4 .title-container p {
+  position: absolute;
+  width: 100%;
+  text-align: center;
+  font-size: 36px;
+  letter-spacing: -0.05rem;
+}
+
+/* animierte Wörter */
+.popup-wrapper_content-4 .word {
+  position: relative;
+  display: inline-block;
+  will-change: transform;
 }
 `;
 
