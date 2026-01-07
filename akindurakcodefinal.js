@@ -537,10 +537,14 @@ a[stagger-link] [stagger-link-text]{
 .popup-wrapper_content-4 .gallery-container {
   position: relative;
   width: 100%;
-  height: 100%;
+  max-width: 600px;
+  aspect-ratio: 1 / 1;   /* immer Quadrat */
+  margin-inline: auto;
+
   display: flex;
   justify-content: center;
   align-items: center;
+
   transform-style: preserve-3d;
   perspective: 2000px;
   will-change: transform;
