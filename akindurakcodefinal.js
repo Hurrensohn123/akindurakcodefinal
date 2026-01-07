@@ -512,7 +512,14 @@ body {
 a[stagger-link] [stagger-link-text]{
 	text-shadow: 0px 1em 0px;
 }
-/* POPUP-SCOPE — nur innerhalb .popup-wrapper_content-4 */
+
+/* SCOPE NUR IM POPUP */
+.popup-wrapper_content-4 * {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
 .popup-wrapper_content-4 img {
   width: 100%;
   height: 100%;
@@ -522,8 +529,8 @@ a[stagger-link] [stagger-link-text]{
 
 .popup-wrapper_content-4 .container {
   position: relative;
-  width: 100%;
-  height: 100%;
+  width: 100vw;
+  height: 100svh;
   overflow: hidden;
 }
 
@@ -587,7 +594,7 @@ a[stagger-link] [stagger-link-text]{
   will-change: transform;
 }
 
-/* 📱 MOBILE — kleiner skalieren */
+/* MOBILE ANPASSUNG */
 @media (max-width: 768px) {
   .popup-wrapper_content-4 .gallery {
     width: 320px;
