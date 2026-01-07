@@ -512,6 +512,93 @@ body {
 a[stagger-link] [stagger-link-text]{
 	text-shadow: 0px 1em 0px;
 }
+/* POPUP-SCOPE — nur innerhalb .popup-wrapper_content-4 */
+.popup-wrapper_content-4 img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  backface-visibility: hidden;
+}
+
+.popup-wrapper_content-4 .container {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+}
+
+.popup-wrapper_content-4 .gallery-container {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  transform-style: preserve-3d;
+  perspective: 2000px;
+  will-change: transform;
+}
+
+.popup-wrapper_content-4 .gallery {
+  position: relative;
+  width: 600px;
+  height: 600px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  transform-origin: center;
+  will-change: transform;
+}
+
+.popup-wrapper_content-4 .card {
+  position: absolute;
+  width: 45px;
+  height: 60px;
+  border-radius: 4px;
+  transform-origin: center;
+  will-change: transform;
+  transform-style: preserve-3d;
+  backface-visibility: visible;
+  overflow: hidden;
+}
+
+.popup-wrapper_content-4 .title-container {
+  position: fixed;
+  bottom: 25%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 100%;
+  height: 42px;
+  clip-path: polygon(0 0, 100% 0, 100% 100%, 0% 100%);
+  pointer-events: none;
+}
+
+.popup-wrapper_content-4 .title-container p {
+  position: absolute;
+  width: 100%;
+  text-align: center;
+  font-size: 36px;
+  letter-spacing: -0.05rem;
+}
+
+.popup-wrapper_content-4 .word {
+  position: relative;
+  display: inline-block;
+  will-change: transform;
+}
+
+/* 📱 MOBILE — kleiner skalieren */
+@media (max-width: 768px) {
+  .popup-wrapper_content-4 .gallery {
+    width: 320px;
+    height: 320px;
+    transform: scale(.6);
+  }
+
+  .popup-wrapper_content-4 .title-container p {
+    font-size: 22px;
+  }
+}
 `;
 
   document.head.appendChild(styleEl);
