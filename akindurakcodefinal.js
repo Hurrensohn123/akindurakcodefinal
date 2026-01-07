@@ -1,5 +1,4 @@
  /* =========================== 3D CAROUSEL =========================== */
-
 function init3DCarousel() {
   $("[carousel='component']").each(function () {
     let componentEl = $(this);
